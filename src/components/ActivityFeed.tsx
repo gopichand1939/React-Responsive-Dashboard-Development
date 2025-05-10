@@ -1,49 +1,26 @@
-src/
-├─ .vscode/
-│  └─ settings.json
-├─ assets/
-│  ├─ fingerprint.png
-│  └─ react.svg
-├─ components/
-│  ├─ ActivityFeed.tsx
-│  ├─ BarChart.tsx
-│  ├─ Calendar.tsx
-│  ├─ CardSecurity.tsx
-│  ├─ CheckTable.tsx
-│  ├─ ComplexTable.tsx
-│  ├─ DailyTrafficChart.tsx
-│  ├─ KpiCard.tsx
-│  ├─ LessonCard.tsx
-│  ├─ LineChart.tsx
-│  ├─ PieChart.tsx
-│  ├─ StarbucksPromo.tsx
-│  ├─ Tasks.tsx
-│  └─ TeamMembers.tsx
-├─ layouts/
-│  ├─ AppLayout.tsx
-│  ├─ Footer.tsx
-│  ├─ Header.tsx
-│  └─ Sidebar.tsx
-├─ pages/
-│  ├─ Dashboard.tsx
-│  ├─ Kanban.tsx
-│  ├─ NftMarketplace.tsx
-│  ├─ Profile.tsx
-│  ├─ Settings.tsx
-│  ├─ SignIn.tsx
-│  └─ Tables.tsx
-├─ redux/
-│  ├─ dashboardSlice.ts
-│  ├─ store.ts
-│  └─ themeSlice.ts
-├─ services/
-│  └─ api.ts
-├─ utils/
-│  ├─ constants.ts
-│  └─ theme.ts
-├─ App.css
-├─ App.tsx
-├─ global.d.ts
-├─ index.css
-├─ main.tsx
-└─ vite-env.d.ts
+import React from 'react';
+
+const activities = [
+  { id: 1, message: 'User John Doe uploaded a report.', time: '2 minutes ago' },
+  { id: 2, message: 'Alice changed dashboard settings.', time: '10 minutes ago' },
+  { id: 3, message: 'System generated weekly summary.', time: '1 hour ago' },
+  { id: 4, message: 'User Mike added a new KPI card.', time: '2 hours ago' },
+];
+
+const ActivityFeed: React.FC = () => {
+  return (
+    <div className="space-y-4">
+      {activities.map((activity) => (
+        <div
+          key={activity.id}
+          className="flex justify-between items-start bg-[#111c44] p-3 rounded-lg shadow-sm hover:shadow-md transition duration-200"
+        >
+          <div className="text-sm text-white">{activity.message}</div>
+          <div className="text-xs text-gray-400">{activity.time}</div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default ActivityFeed;
